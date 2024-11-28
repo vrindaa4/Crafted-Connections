@@ -1,0 +1,38 @@
+<%- include("header") %>
+
+<div style="border: 2px; height: 500px; width: 1000px;">
+<h1>Add Product</h1>
+<form action="addItemSubmit" method="post">
+<table align="center" class="table table-bordered">
+    <tr>
+        <td>Product Name</td>
+        <td><input type="text" name="pName" required /></td>
+    </tr>
+    <tr>
+        <td>Product Description</td>
+        <td><textarea name="pDescription" required></textarea></td>
+    </tr>
+    <tr>
+        <td>Product Price</td>
+        <td><input type="number" name="pPrice" required /></td>
+    </tr>
+    <tr>
+        <td>Quantity Sold</td>
+        <td><input type="number" name="pSold" required /></td>
+    </tr>
+    <tr>
+        <td>Product Quantity</td>
+        <td><input type="number" name="pQuantity" required /></td>
+    </tr>
+    <tr>
+        <td>Product Category</td>
+        <td><input type="text" name="pCategory" required /></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" value="Submit" />
+        </td>
+    </tr>
+    </table>
+</form>
+</div>

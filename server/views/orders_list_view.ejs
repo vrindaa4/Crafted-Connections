@@ -1,0 +1,77 @@
+<%- include('header'); %>
+<div style="border: 2px; padding: 20px; width: 500px; margin: auto;">
+    <h1>Add Order</h1>
+    <form action="/addOrderSubmit" method="post">
+        <table class="table table-bordered">
+            <tr>
+                <td>All Products</td>
+                <td><input type="text" name="allProducts" required/></td>
+            </tr>
+            <tr>
+                <td>User</td>
+                <td><input type="text" name="user" required/></td>
+            </tr>
+            <tr>
+                <td>Amount</td>
+                <td><input type="number" name="amount" required/></td>
+            </tr>
+            <tr>
+                <td>Transaction ID</td>
+                <td><input type="text" name="transactionId" required/></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><textarea name="address" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><input type="text" name="phoneNumber" required/></td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td><input type="text" name="status" required/></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Add Order" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div style="border: 2px solid black; padding: 20px; width: 1000px; margin: auto;">
+    <h1>Orders List</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>All Products</th>
+                <th>User</th>
+                <th>Amount</th>
+                <th>Transaction ID</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let order of ordersList) { %>
+                <tr>
+                    <td><%= order.allProducts %></td>
+                    <td><%= order.user %></td>
+                    <td><%= order.amount %></td>
+                    <td><%= order.transactionId %></td>
+                    <td><%= order.address %></td>
+                    <td><%= order.phoneNumber %></td>
+                    <td><%= order.status %></td>
+                    <td>
+                        <a href="/editOrder?orderid=<%= order._id %>">Edit</a> |
+                        <a href="/deleteOrder?orderid=<%= order._id %>">Delete</a>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('footer'); %>

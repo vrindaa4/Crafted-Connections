@@ -1,0 +1,72 @@
+<%- include("header") %>
+<div style="border: 2px solid; padding: 20px; width: 1000px; margin: auto;">
+    <h1>Add User</h1>
+    <form action="/addUserSubmit" method="post">
+        <table class="table table-bordered">
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="name" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email" /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" /></td>
+            </tr>
+           
+            <tr>
+                <td>Phone Number</td>
+                <td><input type="text" name="phoneNumber" /></td>
+            </tr>
+            
+                <td>Address</td>
+                <td><input type="text" name="address" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Add User" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+    <div style="border: 2px solid black; padding: 20px; width: 1000px; margin: auto;">
+        <h1 >User List</h1>
+
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Verified</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let user of usersList) { %>
+                    <tr>
+                        <td>
+                            <%= user.name %>
+                        </td>
+                        <td>
+                            <%= user.email %>
+                        </td>
+                        <td>
+                            <%= user.phoneNumber %>
+                        </td>
+                        <td>
+                            <%= user.verified ? "Yes" : "No" %>
+                        </td>
+                        <td>
+                            <a href="/editUser?userid=<%= user._id %>">Edit</a> |
+                            <a href="/deleteUser?userid=<%= user._id %>">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <%- include("footer") %>
