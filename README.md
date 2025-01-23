@@ -1,0 +1,1 @@
+Crafted Connections is a digital marketplace designed to empower artisans and small businesses by offering a platform to showcase and sell handmade goods. Built using the MERN stack (MongoDB, Express.js, React.js, Node.js), the project emphasizes efficient database management and smooth user interactions through robust CRUD 
